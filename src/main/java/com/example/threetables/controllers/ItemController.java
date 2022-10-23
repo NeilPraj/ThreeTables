@@ -29,24 +29,11 @@ public class ItemController {
         return ResponseEntity.ok("The data was saved successfully");
     }
 
-    @PostMapping("/saveItemParam")
-    public ResponseEntity<String> saveItemParam(@RequestParam List<Item> itemData){
-        itemRepo.saveAll(itemData);
-        return ResponseEntity.ok("Parameters saved");
-    }
-
     @GetMapping("/items/name")
     public ResponseEntity<List<Item>> findItemByName(@RequestParam String name){
         return new ResponseEntity<List<Item>>(itemRepo.findByName(name), HttpStatus.OK);
     }
 
-    /*
-    @GetMapping("/items/nameID")
-    public ResponseEntity<List<Item>> findItemByName(@RequestParam String name){
-        return new ResponseEntity<List<Item>>(itemRepo.findByName(name));
-    }
-    
-     */
 
 
 }
